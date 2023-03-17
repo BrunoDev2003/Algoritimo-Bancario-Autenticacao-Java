@@ -1,11 +1,11 @@
 import java.util.Scanner;
 import java.text.DecimalFormat;
 import java.util.InputMismatchException;
+import java.util.Iterator;
 
 public class main {
 	int receptor = 0;
 	int emissor = 0;
-	int senha = 0;
 	
 	static Scanner in = new Scanner(System.in);
 	
@@ -27,13 +27,35 @@ public class main {
 		} catch (InputMismatchException e) {
 			System.out.println("Erro, resposta inválida.");
 			
+		}	
+		
+		
+		
+	}
+	
+	public static boolean senhaValida(String senha) {
+		if(senha.length() < 8) {
+			return false;
+		} else {
+			for (int i = 0; i < senha.length(); i++) {
+				if(Character.isUpperCase(senha.charAt(i))) {
+					
+				}
+			}
+			for (int q = 0; q < senha.length(); q++) {
+				if(Character.isLowerCase(senha.charAt(q))) {
+					
+				}
+			}
+			for (int s = 0; s < senha.length(); s++) {
+				if(Character.isDigit(senha.charAt(s))) {
+					
+				}
+			}
+			for (int c = 0; c < senha.length(); c++) {
+				if(Character.)
+			}
 		}
-		
-		
-		
-		
-		
-		
-		
+		return true;
 	}
 }
