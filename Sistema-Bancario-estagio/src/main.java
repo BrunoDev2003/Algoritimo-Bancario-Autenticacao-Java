@@ -2,6 +2,8 @@ import java.util.Scanner;
 import java.text.DecimalFormat;
 import java.util.InputMismatchException;
 import java.util.Iterator;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class main {
 	int receptor = 0;
@@ -34,28 +36,19 @@ public class main {
 	}
 	
 	public static boolean senhaValida(String senha) {
-		if(senha.length() < 8) {
+		String regex = "^(?=.*[0-9])"
+                + "(?=.*[a-z])(?=.*[A-Z])"
+                + "(?=.*[@#$%^&+=])"
+                + "(?=\\S+$).{8,20}$";
+		
+		Pattern p = Pattern.compile(regex);
+		
+		if (senha == null) {
 			return false;
-		} else {
-			for (int i = 0; i < senha.length(); i++) {
-				if(Character.isUpperCase(senha.charAt(i))) {
-					
-				}
-			}
-			for (int q = 0; q < senha.length(); q++) {
-				if(Character.isLowerCase(senha.charAt(q))) {
-					
-				}
-			}
-			for (int s = 0; s < senha.length(); s++) {
-				if(Character.isDigit(senha.charAt(s))) {
-					
-				}
-			}
-			for (int c = 0; c < senha.length(); c++) {
-				if(Character.)
-			}
 		}
-		return true;
+		
+		Matcher m = p.matcher(senha);
+		
+		return m.matches();
 	}
 }
