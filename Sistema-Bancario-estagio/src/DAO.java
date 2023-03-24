@@ -5,7 +5,7 @@ public class DAO {
 		usuario.setLogin(login);
 		usuario.setSenha(senha);
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		return null;
+		return usuario;
 		
 	}
 }
