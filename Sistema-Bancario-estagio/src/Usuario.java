@@ -21,6 +21,7 @@ public class Usuario {
 
 	public void setSenha(String senha) {
 		// TODO Auto-generated method stub
+		this.senha = senha;
 		
 	}
 	
