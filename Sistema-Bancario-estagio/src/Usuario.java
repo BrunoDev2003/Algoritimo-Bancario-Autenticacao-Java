@@ -1,9 +1,11 @@
 
+import javax.persistence;
 public class Usuario {
 	private Integer id;
 	private String login;
 	private String senha;
 	
+	@Entity
 	
 	public String getLogin(String login) {
 		return login;
