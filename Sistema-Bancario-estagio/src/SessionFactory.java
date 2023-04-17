@@ -3,13 +3,17 @@ import javax.naming.ConfigurationException;
 public class SessionFactory {
 	static SessionFactory sessionFactory = null;
 
-    static {
-        try{
-            sessionFactory = new ConfigurationException().configure().buildSessionFactory();
-        }catch (Throwable ex) { 
-           System.err.println("Failed to create sessionFactory object." + ex);
-           throw new ExceptionInInitializerError(ex); 
-        }
+	 if (sessionFactory == null) {
+         Configuration configuration = new Configuration().configure();
+         ServiceRegistryBuilder registry = new ServiceRegistryBuilder();
+         registry.applySettings(configuration.getProperties());
+         ServiceRegistry serviceRegistry = registry.buildServiceRegistry();
+          
+         sessionFactory = configuration.buildSessionFactory(serviceRegistry);           
+     }
+      
+     return sessionFactory;
+ }
     }
 
     public static void addToDatabase(String something) {
